@@ -78,6 +78,23 @@
     </pluginRepository>
   </pluginRepositories>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-common</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-config-api</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-registry-api</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+   </dependencies>
   <modules>
     <module>releng/org.eclipse.ecf.provider.dubbo.target</module>
     <module>features/org.eclipse.ecf.provider.dubbo.feature</module>
