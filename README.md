@@ -5,7 +5,7 @@ ECF is an Eclipse Foundation project that implements OSGi R7 version of the [Rem
 
 [ECF Home page](http://www.eclipse.org/ecf)  [ECF Wiki](https://wiki.eclipse.org/ECF)  [ECF Download page](http://www.eclipse.org/ecf/downloads.php)  [ECF Distribution Providers](https://wiki.eclipse.org/Distribution_Providers)
 
-###Install into Karaf
+### Install into Karaf
 
 The ECF Remote Service SDK must be installed first to use of this distribution provider.  See [this page](https://wiki.eclipse.org/EIG:Install_into_Apache_Karaf) to install the ECF Remote Services SDK into Karaf.
 
@@ -20,7 +20,7 @@ This repo has the following features:
 
 One and/or the other should be installed to use the server and/or client.
 
-###Install into Eclipse or Target Platform
+### Install into Eclipse or Target Platform
 
 The ECF Remote Service SDK must be installed first to use of this distribution provider.  See [ECF download page](http://www.eclipse.org/ecf/downloads.php) to install the ECF Remote Services SDK into Eclipse or Target Platform.
 
@@ -28,7 +28,7 @@ To install into Eclipse or Target Platform:
 
 P2 Repo URL: **https://raw.githubusercontent.com/ECF/DubboProvider/master/build/**
 
-###Exporting Demo Service
+### Exporting Demo Service
 
 After installing ecf rs sdk, dubbo server into Karaf, install this feature:  **ecf-rs-distribution-dubbo-demo-host**
 
@@ -81,7 +81,7 @@ this should immediately result in output to the Karaf console like the following
 
 This indicates that the [DemoServiceImpl](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl/src/org/eclipse/ecf/examples/provider/dubbo/demo/impl/DemoServiceImpl.java) was exported as a [DemoService](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.api/src/org/eclipse/ecf/examples/provider/dubbo/demo/api/DemoService.java) remote service.  It is now waiting for clients to discover, import, and use the remote service.   The endpoint-description output can be used to discover the remote service on a separate process and import it.   Note that typically a network-based discovery protocol (e.g. etcd, zeroconf, zookeeper, jslp, see [ECF's discovery impls here](https://wiki.eclipse.org/Discovery_Providers)) will be used to publish and subscribe an endpoint description and it will be unnecessary to cut and paste to import as described below.
 
-###Discovering, Importing and Calling DemoService
+### Discovering, Importing and Calling DemoService
 
 In a second Karaf instance install this feature:  **ecf-rs-distribution-dubbo-demo-consumer**
 
