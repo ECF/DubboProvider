@@ -86,6 +86,21 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.25.Final</version>
         </dependency>
+        		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-common</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-config-api</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-registry-api</artifactId>
+			<version>2.7.3</version>
+		</dependency>
 	</dependencies>
 
 </project>
