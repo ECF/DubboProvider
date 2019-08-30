@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-common-2.7.4-SNAPSHOT.jar" sourcepath="/dubbo-common"/>
+	<classpathentry kind="src" path="src/"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-config-api-2.7.4-SNAPSHOT.jar" sourcepath="/dubbo-config-api"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-cluster-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-configcenter-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-container-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-filter-cache-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-filter-validation-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-metadata-report-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-monitor-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-registry-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-remoting-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-remoting-netty4-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-rpc-injvm-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-serialization-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-rpc-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/javassist-3.24.1-GA.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-rpc-dubbo-2.7.4-SNAPSHOT.jar" sourcepath="/dubbo-rpc-dubbo"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/netty-all-4.1.25.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-serialization-hessian2-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/hessian-lite-3.2.5.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

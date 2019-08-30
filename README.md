@@ -1,2 +1,4 @@
 # DubboProvider
-Remote Services Distribution Provider based upon Apache Dubbo
+ECF Remote Services Distribution Provider based upon Apache Dubbo.
+
+

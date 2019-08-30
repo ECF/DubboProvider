@@ -1,0 +1,2 @@
+adaptive=org.eclipse.ecf.provider.internal.dubbo.OSGIExtensionFactory
+spi=org.eclipse.ecf.provider.internal.dubbo.OSGIExtensionFactory
