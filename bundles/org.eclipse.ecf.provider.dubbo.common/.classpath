@@ -13,8 +13,8 @@
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-metadata-report-api-2.7.4-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-monitor-api-2.7.4-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-registry-api-2.7.4-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-remoting-api-2.7.4-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-remoting-netty4-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-remoting-api-2.7.4-SNAPSHOT.jar" sourcepath="/dubbo-remoting-api"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-remoting-netty4-2.7.4-SNAPSHOT.jar" sourcepath="/dubbo-remoting-netty4"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-rpc-injvm-2.7.4-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-serialization-api-2.7.4-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-rpc-api-2.7.4-SNAPSHOT.jar"/>
