@@ -1,0 +1,39 @@
+<endpoint-descriptions xmlns="http://www.osgi.org/xmlns/rsa/v1.0.0">
+  <endpoint-description>
+    <property name="ecf.endpoint.id" value-type="String" value="dubbo%3A%2F%2F192.168.0.52%3A20880%2Forg.eclipse.ecf.examples.provider.dubbo.demo.api.DemoService%3Fanyhost%3Dtrue%26application%3Decf-remoteservice-application%26bind.ip%3D192.168.0.52%26bind.port%3D20880%26deprecated%3Dfalse%26dubbo%3D2.0.2%26dynamic%3Dtrue%26generic%3Dfalse%26interface%3Dorg.eclipse.ecf.examples.provider.dubbo.demo.api.DemoService%26methods%3DsayHello%26pid%3D8804%26register%3Dtrue%26release%3D2.7.4-SNAPSHOT%26side%3Dprovider%26timestamp%3D1567463539696"/>
+    <property name="ecf.endpoint.id.ns" value-type="String" value="ecf.namespace.dubbo"/>
+    <property name="ecf.endpoint.ts" value-type="Long" value="1567463539386"/>
+    <property name="ecf.rsvc.id" value-type="Long" value="1"/>
+    <property name="endpoint.framework.uuid" value-type="String" value="b22ca7cf-b450-4a44-9d87-c3d56b9b9c32"/>
+    <property name="endpoint.id" value-type="String" value="422a7c71-10d3-40d0-ab5c-2c76496edda4"/>
+    <property name="endpoint.package.version.org.eclipse.ecf.examples.provider.dubbo.demo.api" value-type="String" value="1.0.0"/>
+    <property name="endpoint.service.id" value-type="Long" value="39"/>
+    <property name="objectClass" value-type="String">
+      <array>
+        <value>org.eclipse.ecf.examples.provider.dubbo.demo.api.DemoService</value>
+      </array>
+    </property>
+    <property name="remote.configs.supported" value-type="String">
+      <array>
+        <value>ecf.dubbo.server</value>
+      </array>
+    </property>
+    <property name="remote.intents.supported" value-type="String">
+      <array>
+        <value>osgi.basic</value>
+        <value>passByValue</value>
+        <value>exactlyOnce</value>
+        <value>ordered</value>
+        <value>osgi.async</value>
+        <value>osgi.private</value>
+        <value>dubbo</value>
+      </array>
+    </property>
+    <property name="service.imported" value-type="String" value="true"/>
+    <property name="service.imported.configs" value-type="String">
+      <array>
+        <value>ecf.dubbo.server</value>
+      </array>
+    </property>
+  </endpoint-description>
+</endpoint-descriptions>

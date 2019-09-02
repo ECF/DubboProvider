@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/org.eclipse.ecf.examples.provider.dubbo.demo.api_1.0.0.201908301123.jar"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/dubbo-cluster-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-common-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-config-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-configcenter-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-container-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-filter-cache-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-filter-validation-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-metadata-report-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-monitor-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-registry-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-remoting-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-remoting-netty4-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-rpc-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-rpc-dubbo-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-rpc-injvm-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-serialization-api-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/dubbo-serialization-hessian2-2.7.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/hessian-lite-3.2.5.jar"/>
+	<classpathentry kind="lib" path="lib/javassist-3.24.1-GA.jar"/>
+	<classpathentry kind="lib" path="lib/netty-all-4.1.25.Final.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

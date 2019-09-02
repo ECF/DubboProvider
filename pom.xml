@@ -87,6 +87,7 @@
     <module>examples/org.eclipse.ecf.examples.provider.dubbo.demo.api</module>
     <module>examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl</module>
     <module>examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer</module>
+    <module>examples/ecf.example.demo.consumer</module>
   </modules>
 
 
