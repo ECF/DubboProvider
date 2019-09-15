@@ -1,12 +1,13 @@
-# DubboProvider - ECF Remote Service Distribution Provider
-ECF OSGi R7 Remote Services Distribution Provider based upon [Apache Dubbo](http://dubbo.apache.org).
+# DubboProvider - Remote Service Distribution Provider
+ECF OSGi R7 Remote Services Distribution Provider based upon [Apache Dubbo](http://dubbo.apache.org)
 
-ECF is an Eclipse Foundation project that implements OSGi R7 version of the [Remote Services](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [Remote Service Admin](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html) specifications. 
+ECF is an [Eclipse Foundation](http://www.eclipse.org) project that implements OSGi R7 version of the [Remote Services](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [Remote Service Admin](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html) specifications. 
 
 [ECF Home page](http://www.eclipse.org/ecf)<br>
 [ECF Wiki](https://wiki.eclipse.org/ECF)<br>
 [ECF Download page](http://www.eclipse.org/ecf/downloads.php)<br>
 [ECF Distribution Providers](https://wiki.eclipse.org/Distribution_Providers) 
+[ECF Discovery Providers](https://wiki.eclipse.org/Discovery_Providers) 
 
 ## Install
 
