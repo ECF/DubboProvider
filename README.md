@@ -14,6 +14,7 @@ ECF is an [Eclipse Foundation](http://www.eclipse.org) project that implements O
 ### Install into Karaf
 
 1 Start Karaf
+
 2 At prompt type
 <pre>
 karaf@root()> feature:repo-add ecf
