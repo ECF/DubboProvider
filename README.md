@@ -15,7 +15,8 @@ ECF is an [Eclipse Foundation](http://www.eclipse.org) project that implements O
 
 1 Start Karaf
 
-2 At prompt type
+2 At Done.
+karaf@root()> prompt type
 <pre>
 karaf@root()> feature:repo-add ecf
 </pre>
