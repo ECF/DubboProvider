@@ -6,14 +6,36 @@ ECF is an [Eclipse Foundation](http://www.eclipse.org) project that implements O
 [ECF Home page](http://www.eclipse.org/ecf)<br>
 [ECF Wiki](https://wiki.eclipse.org/ECF)<br>
 [ECF Download page](http://www.eclipse.org/ecf/downloads.php)<br>
-[ECF Distribution Providers](https://wiki.eclipse.org/Distribution_Providers) 
+[ECF Distribution Providers](https://wiki.eclipse.org/Distribution_Providers)<br>
 [ECF Discovery Providers](https://wiki.eclipse.org/Discovery_Providers) 
 
 ## Install
 
 ### Install into Karaf
 
-The ECF Remote Service SDK must be installed first to use of this distribution provider.  See [this page](https://wiki.eclipse.org/EIG:Install_into_Apache_Karaf) to install the ECF Remote Services SDK into Karaf.
+1 Start Karaf
+2 At prompt type
+<pre>
+karaf@root()> feature:repo-add ecf
+</pre>
+3 Install DubboProvider features repo by typing:
+<pre>
+karaf@root()> feature:repo-add https://raw.githubusercontent.com/ECF/DubboProvider/master/build/karaf-features.xml
+</pre>
+4 Install Dubbo Server by typing:
+<pre>
+karaf@root()> feature:install -v ecf-rs-distribution-dubbo-server
+</pre>
+This will produce output shoing the installation of various bundles, and complete with:
+<pre>
+<output>
+Done.
+karaf@root()>
+</pre>
+The Dubbo Remote Services Distribution Provider Server is installed
+
+
+The ECF Remote Service SDK must be installed to use of this distribution provider.  See [this page](https://wiki.eclipse.org/EIG:Install_into_Apache_Karaf) to install the ECF Remote Services SDK into Karaf.
 
 To install this provider here is the URL for Karaf features:
 
