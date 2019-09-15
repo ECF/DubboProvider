@@ -28,11 +28,14 @@ karaf@root()> feature:install -v ecf-rs-distribution-dubbo-server
 </pre>
 This will produce output shoing the installation of various bundles, and complete with:
 <pre>
-<output>
+...multiple lines of output...
 Done.
 karaf@root()>
 </pre>
 The Dubbo Remote Services Distribution Provider Server is installed
+
+Dubbo Client Provider
+
 
 
 The ECF Remote Service SDK must be installed to use of this distribution provider.  See [this page](https://wiki.eclipse.org/EIG:Install_into_Apache_Karaf) to install the ECF Remote Services SDK into Karaf.
