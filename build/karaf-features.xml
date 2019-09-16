@@ -47,7 +47,7 @@
 		version="1.0.0"
 		description="ECF Dubbo Demo Service Consumer. See https://github.com/ECF/DubboProvider">
 		<feature>ecf-rs-distribution-dubbo-demo-api</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.examples.provider.dubbo.demo.consumer_1.0.0.201909151952.jar
+		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.examples.provider.dubbo.demo.consumer_1.0.0.201909161625.jar
 		</bundle>
 	</feature>
 
