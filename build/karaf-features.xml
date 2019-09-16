@@ -6,7 +6,7 @@
 		description="ECF Dubbo Distribution Provider Support. See https://github.com/ECF/DubboProvider">
 		<feature>ecf-rs-rsa</feature>
 		<feature>ecf-rs-console</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.common_1.0.0.201909151656.jar
+		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.common_1.0.0.201909151710.jar
 		</bundle>
 	</feature>
 
