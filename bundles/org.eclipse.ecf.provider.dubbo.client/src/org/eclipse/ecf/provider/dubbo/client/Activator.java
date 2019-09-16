@@ -11,6 +11,7 @@ package org.eclipse.ecf.provider.dubbo.client;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.eclipse.ecf.core.ContainerTypeDescription;
 import org.eclipse.ecf.core.IContainer;
@@ -38,7 +39,10 @@ public class Activator implements BundleActivator {
 											Map<String, ?> parameters) {
 										String applicationName = getParameterValue(parameters,
 												DubboConstants.CLIENT_APPLICATION_NAME_PROP,
-												DubboConstants.CLIENT_APPLICATION_NAME_DEFAULT);
+												null);
+										if (applicationName == null) {
+											applicationName = DubboConstants.CLIENT_APPLICATION_NAME_DEFAULT+UUID.randomUUID().toString();
+										}
 										return new DubboClientContainer(applicationName);
 									}
 
