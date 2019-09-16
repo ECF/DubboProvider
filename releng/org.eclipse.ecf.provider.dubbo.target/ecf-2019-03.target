@@ -18,5 +18,10 @@
 <unit id="org.eclipse.ecf.remoteservice.sdk.feature.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/rt/ecf/3.14.5/site.p2"/>
 </location>
+	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="https://raw.githubusercontent.com/ECF/HazelcastProvider/master/build"/>
+		<unit id="org.eclipse.ecf.discovery.provider.hazelcast.feature.source.feature.group" version="1.5.0.201909132109"/>
+		<unit id="org.eclipse.ecf.discovery.provider.hazelcast.feature.feature.group" version="1.5.0.201909132109"/>
+	</location>
 </locations>
 </target>

@@ -26,6 +26,7 @@
    </vm>
 
    <plugins>
+      <plugin id="com.hazelcast"/>
       <plugin id="org.apache.felix.gogo.command"/>
       <plugin id="org.apache.felix.gogo.runtime"/>
       <plugin id="org.apache.felix.gogo.shell"/>
@@ -34,6 +35,7 @@
       <plugin id="org.eclipse.ecf"/>
       <plugin id="org.eclipse.ecf.console"/>
       <plugin id="org.eclipse.ecf.discovery"/>
+      <plugin id="org.eclipse.ecf.discovery.provider.hazelcast"/>
       <plugin id="org.eclipse.ecf.examples.provider.dubbo.demo.api"/>
       <plugin id="org.eclipse.ecf.examples.provider.dubbo.demo.consumer"/>
       <plugin id="org.eclipse.ecf.identity"/>
@@ -55,5 +57,36 @@
       <plugin id="org.eclipse.osgi.util"/>
    </plugins>
 
+   <configurations>
+      <plugin id="com.hazelcast" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.gogo.command" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.gogo.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.gogo.shell" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.jobs" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.console" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.discovery" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.discovery.provider.hazelcast" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.examples.provider.dubbo.demo.api" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.examples.provider.dubbo.demo.consumer" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.identity" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.osgi.services.distribution" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.osgi.services.remoteserviceadmin" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.osgi.services.remoteserviceadmin.console" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.osgi.services.remoteserviceadmin.proxy" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.provider.dubbo.client" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.provider.dubbo.common" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.remoteservice" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.ecf.remoteservice.asyncproxy" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.concurrent" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.console" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.osgi.services.remoteserviceadmin" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.osgi.util" autoStart="true" startLevel="0" />
+   </configurations>
 
 </product>

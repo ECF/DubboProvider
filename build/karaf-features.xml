@@ -1,12 +1,14 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
 	name="ecf-remoteservices-dubbo-1.0.0">
-
+    <repository>http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml</repository>
+    <repository>https://raw.githubusercontent.com/ECF/HazelcastProvider/master/build/karaf-features.xml</repository>
 	<feature name="ecf-rs-distribution-dubbo-common"
 		version="1.0.0"
 		description="ECF Dubbo Distribution Provider Support. See https://github.com/ECF/DubboProvider">
 		<feature>ecf-rs-rsa</feature>
 		<feature>ecf-rs-console</feature>
 		<feature>ecf-rs-discovery-jmdns</feature>
+		<feature>ecf-rs-discovery-hazelcast</feature>
 		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.common_1.0.0.201909151952.jar
 		</bundle>
 	</feature>
