@@ -50,7 +50,7 @@ public class Activator implements BundleActivator {
 										}
 										checkOSGIIntents(description, uri, parameters);
 										URIID containerId = (URIID) IDFactory.getDefault()
-												.createID(DubboNamespace.INSTANCE, uri.toString());
+												.createID(DubboNamespace.INSTANCE, new Object[] { uri });
 										return new DubboServerContainer(containerId);
 									}
 

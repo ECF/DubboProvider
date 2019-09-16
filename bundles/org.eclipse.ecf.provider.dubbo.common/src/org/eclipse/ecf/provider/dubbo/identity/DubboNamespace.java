@@ -37,9 +37,6 @@ public class DubboNamespace extends URIIDNamespace {
 
 	public ID createInstance(Object[] parameters) throws IDCreateException {
 		try {
-			String init = getInitStringFromExternalForm(parameters);
-			if (init != null)
-				return new URIID(this, new URI(init));
 			if (parameters[0] instanceof URI)
 				return new URIID(this, (URI) parameters[0]);
 			if (parameters[0] instanceof String) {

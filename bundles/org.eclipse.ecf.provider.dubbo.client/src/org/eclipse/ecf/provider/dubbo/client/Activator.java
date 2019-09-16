@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.dubbo.config.ApplicationConfig;
 import org.eclipse.ecf.core.ContainerTypeDescription;
 import org.eclipse.ecf.core.IContainer;
 import org.eclipse.ecf.provider.dubbo.client.container.DubboClientContainer;
@@ -27,8 +28,21 @@ public class Activator implements BundleActivator {
 
 	public static final String[] dubboIntents = new String[] { "dubbo" };
 
+	private static Activator instance;
+	private ApplicationConfig appConfig;
+	
+	public ApplicationConfig getApplicationConfig() {
+		return appConfig;
+	}
+	
+	public static Activator getInstance() {
+		return instance;
+	}
+	
 	@Override
 	public void start(BundleContext context) throws Exception {
+		this.instance = this;
+		this.appConfig = new ApplicationConfig(UUID.randomUUID().toString());
 		context.registerService(IRemoteServiceDistributionProvider.class,
 				new RemoteServiceDistributionProvider.Builder().setName(DubboConstants.CLIENT_PROVIDER_CONFIG_TYPE)
 						.setInstantiator(
@@ -39,10 +53,7 @@ public class Activator implements BundleActivator {
 											Map<String, ?> parameters) {
 										String applicationName = getParameterValue(parameters,
 												DubboConstants.CLIENT_APPLICATION_NAME_PROP,
-												null);
-										if (applicationName == null) {
-											applicationName = DubboConstants.CLIENT_APPLICATION_NAME_DEFAULT+UUID.randomUUID().toString();
-										}
+												DubboConstants.CLIENT_APPLICATION_NAME_DEFAULT);
 										return new DubboClientContainer(applicationName);
 									}
 
@@ -64,8 +75,8 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		// TODO Auto-generated method stub
-
+		this.appConfig = null;
+		this.instance = null;
 	}
 
 }

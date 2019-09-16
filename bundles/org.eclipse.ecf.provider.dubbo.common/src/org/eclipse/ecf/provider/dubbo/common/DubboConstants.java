@@ -18,8 +18,8 @@ public interface DubboConstants {
 	public static final String HOSTNAME_PROP = "hostName";
 	public static final String HOSTNAME_DEFAULT = "127.0.0.1";
 	public static final String APPLICATION_NAME_PROP = "applicationName";
-	public static final String APPLICATION_NAME_DEFAULT = "ecf-remoteservice-application";
+	public static final String APPLICATION_NAME_DEFAULT = "ecf-dubbo-app";
 	public static final String CLIENT_APPLICATION_NAME_PROP = "clientApplicationName";
-	public static final String CLIENT_APPLICATION_NAME_DEFAULT = "ecf-remoteservice-client-application";
+	public static final String CLIENT_APPLICATION_NAME_DEFAULT = "ecf-dubbo-client-app-";
 
 }

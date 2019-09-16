@@ -8,10 +8,15 @@
  ******************************************************************************/
 package org.eclipse.ecf.provider.dubbo.client.container;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.Callable;
 
-import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
+import org.eclipse.ecf.provider.dubbo.client.Activator;
 import org.eclipse.ecf.provider.dubbo.common.DubboConstants;
 import org.eclipse.ecf.provider.dubbo.identity.DubboNamespace;
 import org.eclipse.ecf.remoteservice.IRemoteService;
@@ -24,11 +29,12 @@ import org.eclipse.ecf.remoteservice.events.IRemoteCallCompleteEvent;
 
 public class DubboClientContainer extends AbstractRSAClientContainer {
 
-	private final ApplicationConfig applicationConfig;
+	private final Map<IRemoteServiceReference, DubboRSAClientService> reftoServiceMap;
 
 	public DubboClientContainer(String clientApplicationName) {
-		super(DubboNamespace.createClientID(clientApplicationName));
-		this.applicationConfig = new ApplicationConfig(clientApplicationName);
+		super(DubboNamespace.createClientID(clientApplicationName + UUID.randomUUID().toString()));
+		this.reftoServiceMap = Collections
+				.synchronizedMap(new HashMap<IRemoteServiceReference, DubboRSAClientService>());
 	}
 
 	protected class DubboRSAClientService extends AbstractRSAClientService {
@@ -57,7 +63,7 @@ public class DubboClientContainer extends AbstractRSAClientContainer {
 				}
 			}
 		}
-		
+
 		@Override
 		protected Callable<Object> getSyncCallable(RSARemoteCall call) {
 			return () -> {
@@ -78,11 +84,21 @@ public class DubboClientContainer extends AbstractRSAClientContainer {
 	}
 
 	@Override
+	public void disconnect() {
+		super.disconnect();
+		Collection<DubboRSAClientService> removed = null;
+		synchronized (reftoServiceMap) {
+			removed = this.reftoServiceMap.values();
+			this.reftoServiceMap.clear();
+		}
+		removed.forEach(s -> s.dispose());
+	}
+
+	@Override
 	public boolean ungetRemoteService(IRemoteServiceReference reference) {
-		IRemoteService svc = getRemoteService(reference);
-		if (svc instanceof DubboRSAClientService) {
-			DubboRSAClientService service = (DubboRSAClientService) svc;
-			service.dispose();
+		DubboRSAClientService svc = this.reftoServiceMap.remove(reference);
+		if (svc != null) {
+			svc.dispose();
 		}
 		return super.ungetRemoteService(reference);
 	}
@@ -95,10 +111,16 @@ public class DubboClientContainer extends AbstractRSAClientContainer {
 		try {
 			@SuppressWarnings("rawtypes")
 			ReferenceConfig reference = new ReferenceConfig<>();
-			reference.setApplication(applicationConfig);
+			Activator a = Activator.getInstance();
+			if (a == null) {
+				throw new NullPointerException("Dubbo Client Bundle has bene deactivated");
+			}
+			reference.setApplication(a.getApplicationConfig());
 			reference.setUrl(getConnectedID().getName());
 			reference.setInterface(registration.getClazzes()[0]);
-			return new DubboRSAClientService(this, registration, reference);
+			DubboRSAClientService svc = new DubboRSAClientService(this, registration, reference);
+			this.reftoServiceMap.put(registration.getReference(), svc);
+			return svc;
 		} finally {
 			currentThread.setContextClassLoader(ccl);
 		}
