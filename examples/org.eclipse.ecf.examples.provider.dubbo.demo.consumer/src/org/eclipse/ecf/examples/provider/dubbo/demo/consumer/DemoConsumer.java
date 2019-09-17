@@ -13,7 +13,7 @@ public class DemoConsumer {
 		System.out.println("Bind demo service");
 		// Make remote call
 		String response = svc.sayHello("osgi consumer");
-		System.out.println("provider response=" + response);
+		System.out.println("service response was: " + response);
 	}
 	
 	void unbindDemoService(DemoService svc) {
