@@ -12,7 +12,7 @@ import org.apache.dubbo.common.extension.ExtensionLoader;
 import org.apache.dubbo.config.DubboShutdownHook;
 import org.apache.dubbo.registry.support.AbstractRegistryFactory;
 import org.apache.dubbo.rpc.Protocol;
-import org.eclipse.ecf.core.identity.Namespace;
+import org.eclipse.ecf.core.identity.IDFactory;
 import org.eclipse.ecf.provider.dubbo.identity.DubboNamespace;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -21,7 +21,7 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void start(BundleContext context) throws Exception {
-		context.registerService(Namespace.class, DubboNamespace.INSTANCE, null);
+		IDFactory.getDefault().addNamespace(DubboNamespace.INSTANCE);
 	}
 
 	@Override
