@@ -26,7 +26,11 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		AbstractRegistryFactory.destroyAll();
+		try {
+			AbstractRegistryFactory.destroyAll();
+		} catch (Exception e) {
+			
+		}
 		ExtensionLoader<Protocol> loader = ExtensionLoader.getExtensionLoader(Protocol.class);
 		for (String protocolName : loader.getLoadedExtensions()) {
 			try {
@@ -37,8 +41,11 @@ public class Activator implements BundleActivator {
 			} catch (Throwable t) {
 			}
 		}
-
-		DubboShutdownHook.getDubboShutdownHook().unregister();
+		try {
+			DubboShutdownHook.getDubboShutdownHook().unregister();
+		} catch (Throwable e) {
+			
+		}
 
 	}
 
