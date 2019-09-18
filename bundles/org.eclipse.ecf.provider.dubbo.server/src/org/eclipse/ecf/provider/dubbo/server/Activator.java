@@ -24,8 +24,12 @@ public class Activator implements BundleActivator {
 
 	public static final String[] dubboIntents = new String[] { "dubbo" };
 
+	private DubboNamespace ns;
+	
 	@Override
 	public void start(BundleContext context) throws Exception {
+		// Make sure common bundle is loaded/started
+		ns = DubboNamespace.INSTANCE;
 		context.registerService(IRemoteServiceDistributionProvider.class,
 				new RemoteServiceDistributionProvider.Builder().setName(DubboConstants.SERVER_PROVIDER_CONFIG_TYPE)
 						.setInstantiator(
@@ -81,6 +85,7 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
+		this.ns = null;
 	}
 
 }

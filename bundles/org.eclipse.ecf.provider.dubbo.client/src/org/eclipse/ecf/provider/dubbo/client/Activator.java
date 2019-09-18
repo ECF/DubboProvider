@@ -18,9 +18,11 @@ import org.eclipse.ecf.core.ContainerTypeDescription;
 import org.eclipse.ecf.core.IContainer;
 import org.eclipse.ecf.provider.dubbo.client.container.DubboClientContainer;
 import org.eclipse.ecf.provider.dubbo.common.DubboConstants;
+import org.eclipse.ecf.provider.dubbo.identity.DubboNamespace;
 import org.eclipse.ecf.remoteservice.provider.IRemoteServiceDistributionProvider;
 import org.eclipse.ecf.remoteservice.provider.RemoteServiceContainerInstantiator;
 import org.eclipse.ecf.remoteservice.provider.RemoteServiceDistributionProvider;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -30,6 +32,7 @@ public class Activator implements BundleActivator {
 
 	private static Activator instance;
 	private ApplicationConfig appConfig;
+	private DubboNamespace ns;
 	
 	public ApplicationConfig getApplicationConfig() {
 		return appConfig;
@@ -41,6 +44,9 @@ public class Activator implements BundleActivator {
 	
 	@Override
 	public void start(BundleContext context) throws Exception {
+		// Make sure common loaded/started
+		this.ns = DubboNamespace.INSTANCE;
+		
 		this.instance = this;
 		this.appConfig = new ApplicationConfig(UUID.randomUUID().toString());
 		context.registerService(IRemoteServiceDistributionProvider.class,
@@ -77,6 +83,7 @@ public class Activator implements BundleActivator {
 	public void stop(BundleContext context) throws Exception {
 		this.appConfig = null;
 		this.instance = null;
+		this.ns = null;
 	}
 
 }
