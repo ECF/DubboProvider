@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ECF Dubbo Remote Service Distribution Provider Service Host
+Bundle-Name: ECF Dubbo Remote Service Distribution Provider Server
 Bundle-SymbolicName: org.eclipse.ecf.provider.dubbo.server
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Eclipse.org - ECF
