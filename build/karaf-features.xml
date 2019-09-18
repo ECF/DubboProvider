@@ -8,7 +8,7 @@
 		<feature>ecf-rs-rsa</feature>
 		<feature>ecf-rs-console</feature>
 		<feature>ecf-rs-discovery-hazelcast</feature>
-		<bundle start-level=70>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.common_1.0.0.201909172059.jar
+		<bundle start-level="70">https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.common_1.0.0.201909172059.jar
 		</bundle>
 	</feature>
 
