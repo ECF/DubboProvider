@@ -1,4 +1,4 @@
-# DubboProvider - Remote Service Distribution Provider
+# Dubbo OSGi R7 Remote Service Distribution Provider
 ECF OSGi R7 Remote Services Distribution Provider based upon [Apache Dubbo](http://dubbo.apache.org)
 
 ECF is an [Eclipse Foundation](http://www.eclipse.org) project that implements OSGi R7 version of the [Remote Services](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [Remote Service Admin](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html) specifications. 
@@ -9,13 +9,11 @@ ECF is an [Eclipse Foundation](http://www.eclipse.org) project that implements O
 [ECF Distribution Providers](https://wiki.eclipse.org/Distribution_Providers)<br>
 [ECF Discovery Providers](https://wiki.eclipse.org/Discovery_Providers) 
 
-### Installing and Running Demo in Karaf
+### Installing and Running DemoService in Karaf
 
-#### Demo Remote Service Host
+Note:  By default, the Dubbo Distribution Provider features include the [Hazelcast Discovery Provider](https://github.com/ECF/HazelcastProvider) in their install.  The default configuration of this provider requires multicast be available on the LAN used to run the demos below.  If multicast is not available, then the Hazelcast-based discovery will not occur for the consumer to discover the expored demo service as described below.
 
-Note:  By default, the Dubbo Distribution Provider features include the [Hazelcast Discovery Provider](https://github.com/ECF/HazelcastProvider) in their install
-
-To install, start, and export the DubboProvider Demo Remote Service (available src in project [here](https://github.com/ECF/DubboProvider/tree/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl)) type:
+To install, start, and export the Demo Remote Service (available src in project [here](https://github.com/ECF/DubboProvider/tree/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl)) type:
 	
 	karaf@root()> feature:install ecf-rs-distribution-dubbo-demo-host
 
@@ -66,19 +64,19 @@ This should produce output similar to the following
 	Done.
 	karaf@root()> 
     
-The output above indicates that a DS-created {DemoServiceImpl instance](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl/src/org/eclipse/ecf/examples/provider/dubbo/demo/impl/DemoServiceImpl.java) was 
+The output above indicates that a DS-created [DemoServiceImpl instance](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl/src/org/eclipse/ecf/examples/provider/dubbo/demo/impl/DemoServiceImpl.java) was 
 
 - installed and started
-- the Remote Service was exported (EXPORT_REGISTRATION), producing the ENDPOINT-DESCRIPTION xml shown in the console output as shown above
-- If Hazelcast is installed and able to connect to a multicast group on your lan, that it was published via multicast
+- the DemoServiceImpl remote service was created, registered locally, and exported (EXPORT_REGISTRATION) by the ECF RSA implementation, producing the ENDPOINT-DESCRIPTION xml shown in the console output as shown above
+- If Hazelcast is installed and able to connect to a multicast group on your LAN, the endpoint-description will be published via multicast.  At that point consumers on the same LAN can discover, import, and remotely use the DemoService.
 
-##### Remote Service Consumer (same or separate Karaf instance)
+### Installing and Running Consumer in Karaf (using a separate Karaf instance on same LAN)
 
-To install and start the DubboProvider Demo Remote Service Consumer (avalable in project [here](https://github.com/ECF/DubboProvider/tree/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl)) type:
+To install and start the Demo Remote Service Consumer (avalable in project [here](https://github.com/ECF/DubboProvider/tree/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer)) type:
 
 	karaf@root()> feature:install -v ecf-rs-distribution-dubbo-demo-consumer
 	
-After a few seconds for installation and start of the bundles, if you have exported as shown above in an other Karaf instance, and are on same LAN you should see
+After a few seconds for installation and start of the bundles, if you have exported as shown above in an other Karaf instance, and are on same LAN you should see output similar to the following
 
 	karaf@root()> Bind demo service
 	service response was: Hello to you osgi consumer
@@ -124,12 +122,14 @@ After a few seconds for installation and start of the bundles, if you have expor
 	</endpoint-descriptions>
 	---End Endpoint Description
 		
-The output in between --Endpoint Description-- and --End Endpoint Description is debug output from RSA indicating that the remote service was imported (note IMPORT_REGISTRATION).  Prior to the IMPORT_REGISTRATION is this output
+The output in between --Endpoint Description-- and --End Endpoint Description is debug output from RSA indicating that the remote service was imported (IMPORT_REGISTRATION in above output).  Prior to the IMPORT_REGISTRATION is this output
 
 	karaf@root()> Bind demo service
 	service response was: Hello to you osgi consumer
 
-The Bind demo service indicates that the remote service was bound to the consumer via DS (see [here](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer/src/org/eclipse/ecf/examples/provider/dubbo/demo/consumer/DemoConsumer.java) for the consumer source code).  The [consumer](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer/src/org/eclipse/ecf/examples/provider/dubbo/demo/consumer/DemoConsumer.java) then calls the DemoService.sayHello method, which makes the remote call to the DemoServiceImpl exported from the other Karaf instance.  
+The 'Bind demo service' output indicates that the remote service was bound to the consumer via DS - see [here](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer/src/org/eclipse/ecf/examples/provider/dubbo/demo/consumer/DemoConsumer.java) for the consumer source code.  
+
+The [consumer](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer/src/org/eclipse/ecf/examples/provider/dubbo/demo/consumer/DemoConsumer.java) then calls the DemoService.sayHello method, which makes the remote call to the DemoServiceImpl exported from the other Karaf instance and prints out the result of 'Hello to you osgi consumer'.
 
 If you go back to the other (DemoServiceImpl) Karaf instance, you should see this in the console output
 
@@ -137,7 +137,9 @@ If you go back to the other (DemoServiceImpl) Karaf instance, you should see thi
 
 This is the code in the [DemoServiceImpl class](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl/src/org/eclipse/ecf/examples/provider/dubbo/demo/impl/DemoServiceImpl.java) showing that the consumer remotely called the [DemoServiceImpl](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl/src/org/eclipse/ecf/examples/provider/dubbo/demo/impl/DemoServiceImpl.java) and it constructs and returns a value.
 
-### Install into Karaf without Installing and Running Demo
+To summarize, [this DemoServiceImpl](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl/src/org/eclipse/ecf/examples/provider/dubbo/demo/impl/DemoServiceImpl.java) (remote service host) is exported by one Karaf instance (EXPORT_REGISTRATION), and the consumer then discovers the remote DemoService, creates and binds the proxy into the [consumer](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer/src/org/eclipse/ecf/examples/provider/dubbo/demo/consumer/DemoConsumer.java) and the consumer calls the DemoService.sayHello remote service method, and prints out the result.
+
+### Install Dubbo Distribution Provider into Karaf without Installing and Running Demo
 
 Note:  By default, the Dubbo Distribution Provider features include the [Hazelcast Discovery Provider](https://github.com/ECF/HazelcastProvider) in their install
 
@@ -173,31 +175,4 @@ This will produce output showing the installation and start of multiple bundles,
 	  org.eclipse.ecf.provider.dubbo.client/1.0.0.201908301123
 	Done.
 	karaf@root()>
-
-
-	
-
-### Install into Eclipse or Target Platform
-
-The ECF Remote Service SDK must be installed first to use of this distribution provider.  See [ECF download page](http://www.eclipse.org/ecf/downloads.php) to install the ECF Remote Services SDK into Eclipse or Target Platform.
-
-To install into Eclipse or Target Platform:
-
-P2 Repo URL: **https://raw.githubusercontent.com/ECF/DubboProvider/master/build/**
-
-Once installed, type the following **importservice** ECF RSA console command to discover and import the remote service (without network discovery provider)
-
-	karaf@root()> importservice
-	Waiting for console input.  To complete enter an empty line...
-	Then copy all lines between **--Endpoint Description---** and **---End Endpoint Description** into the clipboard, paste into the console and enter empty an empty line.  This should result in output like the following:
-
-	osgi> importservice
-	Waiting for console input.   To complete enter an empty line...
-	<much debug output deleted>
-	osgi provider responds: Hello osgi consumer, response from provider
-	<more debug output deleted>
-	osgi> 
-
-The output indicates that the [DemoService](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.api/src/org/eclipse/ecf/examples/provider/dubbo/demo/api/DemoService.java) was discovered and imported by the client runtime, injected into the [DemoConsumer](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer/src/org/eclipse/ecf/examples/provider/dubbo/demo/consumer/DemoConsumer.java) class courtesy of Declarative Services and the [DemoConsumer.bindDemoService](https://github.com/ECF/DubboProvider/blob/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer/src/org/eclipse/ecf/examples/provider/dubbo/demo/consumer/DemoConsumer.java#L11) method, and the DemoService sayHello remote method was called and returned to print out: **osgi provider responds: Hello osgi consumer, response from provider**
-
 
