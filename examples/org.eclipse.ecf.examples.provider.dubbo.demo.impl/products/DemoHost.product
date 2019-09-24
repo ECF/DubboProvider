@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="ECF Dubbo Distribution Provider Demo Impl Application" uid="org.eclipse.ecf.examples.provider.dubbo.demo.impl.product" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
-
+<product name="ECF Dubbo Distribution Provider Demo Impl Application" uid="org.eclipse.ecf.examples.provider.dubbo.demo.impl.product" version="1.0.1.qualifier" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -10,7 +9,9 @@
    <launcherArgs>
       <programArgs>-consoleLog -console
       </programArgs>
-      <vmArgs>-Declipse.ignoreApp=true  -Dosgi.noShutdown=true
+      <vmArgs>-Declipse.ignoreApp=true  
+-Dosgi.noShutdown=true
+-Dorg.eclipse.ecf.core.util.traceBundles=org.eclipse.ecf.discovery.provider.hazelcast
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -18,13 +19,11 @@
 
    <windowImages/>
 
-
    <launcher>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
-
 
    <vm>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
@@ -63,7 +62,7 @@
    </plugins>
 
    <configurations>
-      <plugin id="com.hazelcast" autoStart="true" startLevel="0" />
+      <plugin id="com.hazelcast" autoStart="true" startLevel="2" />
       <plugin id="org.apache.felix.gogo.command" autoStart="true" startLevel="0" />
       <plugin id="org.apache.felix.gogo.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.apache.felix.gogo.shell" autoStart="true" startLevel="0" />
