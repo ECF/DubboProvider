@@ -20,8 +20,8 @@
 </location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<repository location="https://raw.githubusercontent.com/ECF/HazelcastProvider/master/build"/>
-		<unit id="org.eclipse.ecf.discovery.provider.hazelcast.feature.source.feature.group" version="1.5.0.201909132109"/>
-		<unit id="org.eclipse.ecf.discovery.provider.hazelcast.feature.feature.group" version="1.5.0.201909132109"/>
+		<unit id="org.eclipse.ecf.discovery.provider.hazelcast.feature.source.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.ecf.discovery.provider.hazelcast.feature.feature.group" version="0.0.0"/>
 	</location>
 </locations>
 </target>
