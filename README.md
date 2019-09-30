@@ -15,6 +15,10 @@ This repo holds a Distribution provider that can be plugged in underneath ECF's 
 
 Note:  By default, the Dubbo Distribution Provider features include the [Hazelcast Discovery Provider](https://github.com/ECF/HazelcastProvider) in their install.  The default configuration of this provider requires multicast be available on the LAN used to run the demos below.  If multicast is not available, then the Hazelcast-based discovery will not occur for the consumer to discover the expored demo service as described below.
 
+To add the Dubbo Distribution Provider repo:
+
+        karaf@root()> feature:repo-add https://raw.githubusercontent.com/ECF/DubboProvider/master/build/karaf-features.xml
+	
 To install, start, and export the Demo Remote Service (available src in project [here](https://github.com/ECF/DubboProvider/tree/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.impl)) type:
 	
 	karaf@root()> feature:install ecf-rs-distribution-dubbo-demo-host
@@ -74,6 +78,10 @@ The output above indicates that a DS-created [DemoServiceImpl instance](https://
 
 ### Installing and Running Consumer in Karaf (using a separate Karaf instance on same LAN)
 
+To add the Dubbo Distribution Provider repo:
+
+        karaf@root()> feature:repo-add https://raw.githubusercontent.com/ECF/DubboProvider/master/build/karaf-features.xml
+	
 To install and start the Demo Remote Service Consumer (avalable in project [here](https://github.com/ECF/DubboProvider/tree/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer)) type:
 
 	karaf@root()> feature:install -v ecf-rs-distribution-dubbo-demo-consumer
@@ -155,7 +163,7 @@ Note:  By default, the Dubbo Distribution Provider features include the [Hazelca
 
 	karaf@root()> feature:install -v ecf-rs-distribution-dubbo-server
 
-This will produce output showing the installation and start of multiple bundles, and complete with:
+With the -v (verbose) argument, this will produce output showing the installation and start of multiple bundles, and complete with:
 
 	...multiple lines of output...
 	  org.eclipse.ecf.osgi.services.remoteserviceadmin.console/1.2.0.v20180713-1805
