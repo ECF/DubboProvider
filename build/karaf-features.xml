@@ -1,46 +1,46 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
-	name="ecf-remoteservices-dubbo-1.0.0">
+	name="ecf-remoteservices-dubbo-1.0.1">
     <repository>http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml</repository>
     <repository>https://raw.githubusercontent.com/ECF/HazelcastProvider/master/build/karaf-features.xml</repository>
 	<feature name="ecf-rs-distribution-dubbo-common"
-		version="1.0.0"
+		version="1.0.1"
 		description="ECF Dubbo Distribution Provider Support. See https://github.com/ECF/DubboProvider">
 		<feature>ecf-rs-rsa</feature>
 		<feature>ecf-rs-console</feature>
 		<feature>ecf-rs-discovery-hazelcast</feature>
-		<bundle start-level="70" start="true">https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.common_1.0.0.201909172136.jar
+		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.common_1.0.1.201909301556.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-distribution-dubbo-server"
-		version="1.0.0"
+		version="1.0.1"
 		description="ECF Dubbo Distribution Provider Server. See https://github.com/ECF/DubboProvider">
 		<feature>ecf-rs-distribution-dubbo-common</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.server_1.0.0.201909172136.jar
+		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.server_1.0.1.201909301556.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-distribution-dubbo-client"
-		version="1.0.0"
+		version="1.0.1"
 		description="ECF Dubbo Distribution Provider Client. See https://github.com/ECF/DubboProvider">
 		<feature>ecf-rs-distribution-dubbo-common</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.client_1.0.0.201909172136.jar
+		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.provider.dubbo.client_1.0.1.201909301556.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-distribution-dubbo-demo-api"
-		version="1.0.0"
+		version="1.0.1"
 		description="ECF Dubbo Demo API. See https://github.com/ECF/DubboProvider">
-		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.examples.provider.dubbo.demo.api_1.0.0.201909172136.jar
+		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.examples.provider.dubbo.demo.api_1.0.0.201909301556.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-distribution-dubbo-demo-host"
-		version="1.0.0"
+		version="1.0.1"
 		description="ECF Dubbo Demo Service Host. See https://github.com/ECF/DubboProvider">
 		<feature>ecf-rs-distribution-dubbo-server</feature>
 		<feature>ecf-rs-distribution-dubbo-demo-api</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.examples.provider.dubbo.demo.impl_1.0.0.201909172136.jar
+		<bundle>https://raw.githubusercontent.com/ECF/DubboProvider/master/build/plugins/org.eclipse.ecf.examples.provider.dubbo.demo.impl_1.0.1.201909301556.jar
 		</bundle>
 	</feature>
 

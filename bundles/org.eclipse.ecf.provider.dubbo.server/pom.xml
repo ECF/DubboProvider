@@ -10,6 +10,7 @@
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../../</relativePath>
 	</parent>
+	<version>1.0.1-SNAPSHOT</version>
 	<artifactId>org.eclipse.ecf.provider.dubbo.server</artifactId>
 	<packaging>eclipse-plugin</packaging>
 </project>

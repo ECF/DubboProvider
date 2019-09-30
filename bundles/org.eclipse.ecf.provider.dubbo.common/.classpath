@@ -4,7 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-common-2.7.4-SNAPSHOT.jar" sourcepath="/dubbo-common"/>
 	<classpathentry kind="src" path="src/"/>
-	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-config-api-2.7.4-SNAPSHOT.jar" sourcepath="/dubbo-config-api"/>
+	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-config-api-2.7.4-SNAPSHOT.jar" sourcepath="C:/Users/slewis/git/dubbo/dubbo-config/dubbo-config-api/src/main/java"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-cluster-2.7.4-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-configcenter-api-2.7.4-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/dubbo/dubbo-container-api-2.7.4-SNAPSHOT.jar"/>

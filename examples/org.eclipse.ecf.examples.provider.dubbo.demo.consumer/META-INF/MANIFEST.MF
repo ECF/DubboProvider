@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ECF Dubbo Example Remote Service Demo Consumer
+Bundle-Name: ECF Dubbo Demo Remote Service Consumer
 Bundle-SymbolicName: org.eclipse.ecf.examples.provider.dubbo.demo.consumer
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-Vendor: Eclipse.org - ECF
 Automatic-Module-Name: org.eclipse.ecf.examples.provider.dubbo.demo.consumer
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

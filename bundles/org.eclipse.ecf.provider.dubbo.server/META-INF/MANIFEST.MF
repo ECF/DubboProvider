@@ -2,17 +2,22 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ECF Dubbo Remote Service Distribution Provider Server
 Bundle-SymbolicName: org.eclipse.ecf.provider.dubbo.server
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-Vendor: Eclipse.org - ECF
 Automatic-Module-Name: org.eclipse.ecf.provider.dubbo.svchost
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.equinox.common
 Import-Package: org.apache.dubbo.common,
+ org.apache.dubbo.common.extension,
+ org.apache.dubbo.common.utils,
  org.apache.dubbo.config,
+ org.apache.dubbo.config.context,
+ org.apache.dubbo.rpc,
  org.eclipse.ecf.core;version="3.0.0",
  org.eclipse.ecf.core.identity;version="3.3.0",
  org.eclipse.ecf.core.provider;version="3.2.0",
+ org.eclipse.ecf.core.util;version="3.6.0",
  org.eclipse.ecf.provider.dubbo.common;version="[1.0.0,2.0.0)",
  org.eclipse.ecf.provider.dubbo.identity;version="[1.0.0,2.0.0)",
  org.eclipse.ecf.remoteservice;version="7.4.0",

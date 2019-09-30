@@ -1,11 +1,13 @@
 package org.eclipse.ecf.provider.dubbo.server.container;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.dubbo.config.ApplicationConfig;
+import org.apache.dubbo.config.ProtocolConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.ServiceConfig;
 import org.eclipse.ecf.core.identity.URIID;
@@ -17,6 +19,7 @@ public class DubboServerContainer extends AbstractRSAContainer {
 
 	private final String DUBBO_REGISTRY_URL = "osgirs://127.0.0.1";
 
+	private final ProtocolConfig protocolConfig;
 	private final ApplicationConfig applicationConfig;
 	private final RegistryConfig registryConfig;
 	@SuppressWarnings("rawtypes")
@@ -28,6 +31,8 @@ public class DubboServerContainer extends AbstractRSAContainer {
 		regToSvcConfigMap = new HashMap<RSARemoteServiceRegistration, ServiceConfig>();
 		this.applicationConfig = new ApplicationConfig(id.toURI().getPath().replaceAll("/", ""));
 		this.registryConfig = new RegistryConfig(DUBBO_REGISTRY_URL);
+		this.protocolConfig = new ProtocolConfig();
+		this.protocolConfig.refresh();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -54,6 +59,18 @@ public class DubboServerContainer extends AbstractRSAContainer {
 			serviceConfig.setInterface(svc.getClass().getInterfaces()[0]);
 			// Set the reference to the service instance
 			serviceConfig.setRef(svc);
+			URI uri = ((URIID) getID()).toURI();
+			int port = uri.getPort();
+			if (port == 0) {
+				this.protocolConfig.setPort(0);
+			} else if (port > 0) {
+				this.protocolConfig.setPort(port);
+			}
+			String hostName = uri.getHost();
+			if (hostName != null) {
+				this.protocolConfig.setHost(hostName);
+			}
+			serviceConfig.setProtocol(protocolConfig);
 			// export via dubbo here
 			synchronized (regToSvcConfigMap) {
 				serviceConfig.export();
