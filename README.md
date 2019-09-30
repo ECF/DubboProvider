@@ -1,7 +1,9 @@
 # Dubbo OSGi R7 Remote Service Distribution Provider
 ECF OSGi R7 Remote Services Distribution Provider based upon [Apache Dubbo](http://dubbo.apache.org)
 
-ECF is an [Eclipse Foundation](http://www.eclipse.org) project that implements OSGi R7 version of the [Remote Services](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [Remote Service Admin](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html) specifications. 
+ECF is an [Eclipse Foundation](http://www.eclipse.org) open source project that implements the OSGi R7 version of the [Remote Services](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [Remote Service Admin](https://osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html) specifications. 
+
+This repo holds both a Distribution provider that can be plugged in underneath ECF's Remote Services implementation.  The following links provide access to resources about the Remote Services and Remote Service Admin (RSA) implementations themselves, along with linkt to other available Distribution and Discovery providers.
 
 [ECF Home page](http://www.eclipse.org/ecf)<br>
 [ECF Wiki](https://wiki.eclipse.org/ECF)<br>
