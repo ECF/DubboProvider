@@ -16,9 +16,9 @@ import java.util.UUID;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.eclipse.ecf.core.ContainerTypeDescription;
 import org.eclipse.ecf.core.IContainer;
+import org.eclipse.ecf.core.util.BundleStarter;
 import org.eclipse.ecf.provider.dubbo.client.container.DubboClientContainer;
 import org.eclipse.ecf.provider.dubbo.common.DubboConstants;
-import org.eclipse.ecf.provider.dubbo.identity.DubboNamespace;
 import org.eclipse.ecf.remoteservice.provider.IRemoteServiceDistributionProvider;
 import org.eclipse.ecf.remoteservice.provider.RemoteServiceContainerInstantiator;
 import org.eclipse.ecf.remoteservice.provider.RemoteServiceDistributionProvider;
@@ -28,12 +28,13 @@ import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
 
-	public static final String[] dubboIntents = new String[] { "dubbo" };
+	public static final String[] dubboIntents = new String[] { DubboConstants.DUBBO_NAME };
+
+	public static final String[] START_DEPENDENTS = new String[] { "org.eclipse.ecf.provider.dubbo.common" };
 
 	private static Activator instance;
 	private ApplicationConfig appConfig;
-	private DubboNamespace ns;
-	
+
 	public ApplicationConfig getApplicationConfig() {
 		return appConfig;
 	}
@@ -44,10 +45,8 @@ public class Activator implements BundleActivator {
 	
 	@Override
 	public void start(BundleContext context) throws Exception {
-		// Make sure common loaded/started
-		this.ns = DubboNamespace.INSTANCE;
-		
-		this.instance = this;
+		BundleStarter.startDependents(context, START_DEPENDENTS, Bundle.RESOLVED | Bundle.STARTING);
+		instance = this;
 		this.appConfig = new ApplicationConfig(UUID.randomUUID().toString());
 		context.registerService(IRemoteServiceDistributionProvider.class,
 				new RemoteServiceDistributionProvider.Builder().setName(DubboConstants.CLIENT_PROVIDER_CONFIG_TYPE)
@@ -82,8 +81,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		this.appConfig = null;
-		this.instance = null;
-		this.ns = null;
+		instance = null;
 	}
 
 }
