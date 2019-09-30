@@ -84,9 +84,9 @@ To add the Dubbo Distribution Provider repo:
 	
 To install and start the Demo Remote Service Consumer (avalable in project [here](https://github.com/ECF/DubboProvider/tree/master/examples/org.eclipse.ecf.examples.provider.dubbo.demo.consumer)) type:
 
-	karaf@root()> feature:install -v ecf-rs-distribution-dubbo-demo-consumer
+	karaf@root()> feature:install ecf-rs-distribution-dubbo-demo-consumer
 	
-After a few seconds for installation and start of the bundles, if you have exported as shown above in an other Karaf instance, and are on same LAN you should see output similar to the following
+After a few seconds for installation and start of the bundles, if you have exported as shown above in an other Karaf instance, and are on same LAN you should see output similar to the following on the consumer
 
 	karaf@root()> Bind demo service
 	service response was: Hello to you osgi consumer
