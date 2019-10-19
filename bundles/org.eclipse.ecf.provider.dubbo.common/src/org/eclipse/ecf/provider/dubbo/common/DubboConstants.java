@@ -17,14 +17,14 @@ public interface DubboConstants {
 	public static final String SERVER_PROVIDER_CONFIG_TYPE = "ecf.dubbo.server";
 	public static final String CLIENT_PROVIDER_CONFIG_TYPE = "ecf.dubbo.client";
 	public static final String ID_PROP = "id";
-	public static final String HOSTNAME_PROP = "hostName";
+	public static final String HOSTNAME_PROP = "hostname";
 	public static final String HOSTNAME_DEFAULT = "localhost";
 	public static final String PORT_PROP = "port";
 	public static final String PORT_DEFAULT = "0";
 	public static final String APPLICATION_NAME_PROP = "applicationName";
 	public static final String APPLICATION_NAME_DEFAULT = null;
 	public static final String CLIENT_APPLICATION_NAME_PROP = "clientApplicationName";
-	public static final String CLIENT_APPLICATION_NAME_DEFAULT = "ecf-dubbo-client-app-";
-	public static final String APPLICATION_NAME_PREFIX = "ecf-app-";
+	public static final String CLIENT_APPLICATION_NAME_DEFAULT = "ecf-dubbo-rs-client-";
+	public static final String APPLICATION_NAME_PREFIX = "ecf-dubbo-rs-";
 
 }
